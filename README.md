@@ -1,23 +1,21 @@
+[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=24085428)
 # UI Lab 5
 ![](terminal-icon.png)
 ![](gui-icon.png)
 
-Це одна з робіт, які доповнюють основний цикл лабораторних робіт #1-8 (проект **Banking**, [Netbeans](https://netbeans.org/)) з ООП.  Основна мета цих додаткових вправ - познайомитись з різними видами інтерфейсів користувача та засобами їх створення. Згадувані 'базові' роботи розміщено в [окремому репозиторії](https://github.com/liketaurus/OOP-JAVA) (якщо будете робити завдання на "4" або "5" раджу переглянути [діаграму класів](https://github.com/liketaurus/OOP-JAVA/blob/master/MyBank.png), аби розуміти які методи є у класів).
+# Практична робота: Розробка графічного інтерфейсу (GUI) за допомогою платформи JavaFX
 
-В ході цієї роботи вам пропонується виконати **наступне завдання** - [Робота 5: GUI з JavaFX](https://github.com/ppc-ntu-khpi/GUI-Lab3-Starter/blob/master/Lab%205%20-%20JavaFX/Lab%205.md)
-  
-**Додаткове завдання** (для тих хто зробив все і прагне більшого): [дивіться тут](https://github.com/ppc-ntu-khpi/GUI-Lab3-Starter/blob/master/Lab%205%20-%20JavaFX/Lab%20-%205%20-%20add.md)
+**Мета роботи:** Ознайомитися з основами побудови сучасних графічних інтерфейсів на базі платформи JavaFX, навчитися керувати життєвим циклом JavaFX-додатка, реалізувати динамічне заповнення компонентів вибору даних із зовнішнього файлу `test.dat` за допомогою класу `DataSource` та налаштувати обробку подій для взаємодії з доменною моделлю банку.
 
-Всі необхідні бібліотеки містяться у теці [jars](https://github.com/ppc-ntu-khpi/GUI-Lab3-Starter/tree/master/jars). В тому числі - всі необхідні відкомпільовані класи з робіт 1-8 - файл [MyBank.jar](https://github.com/ppc-ntu-khpi/GUI-Lab3-Starter/blob/master/jars/MyBank.jar). Файл даних лежить у теці [data](https://github.com/ppc-ntu-khpi/GUI-Lab3-Starter/tree/master/data).
+1. У середовищі розробки NetBeans створено новий проєкт із назвою `FxDemo` у пакеті `fxdemo` без генерації стандартного головного класу.
+2. Для коректної роботи додатка проєкт було переведено на повну версію платформи BellSoft Liberica Full JDK 21, що містить вбудовані графічні модулі JavaFX.
+3. До шляху компіляції проєкту (`Classpath`) підключено зовнішню бібліотеку `MyBank.jar`, яка забезпечує логіку роботи з клієнтами та рахунками додатка.
+4. Створено клас `FxDemo.java`, що наслідує `javafx.application.Application`. Графічний інтерфейс вікна побудовано програмно за допомогою контейнерів компонування `BorderPane` та `HBox`.
+5. Реалізовано обхід обмежень модульної системи Java шляхом створення додаткового стартового класу `FxMainLauncher` для стабільного запуску вікна.
+6. Написано обробники подій для елементів керування JavaFX додатка:
+   * При виборі імені зі списку `ComboBox` та натисканні кнопки `Show` програма звертається до методів `Bank` і циклом перебирає всі наявні рахунки клієнта, виводячи їхні баланси в текстову область `TextArea`.
+   * При натисканні кнопки `About` викликається інформаційне діалогове вікно `Alert` з даними про розробника.
 
----
-**УВАГА! Не забуваємо здавати завдання через Google Classroom та вказувати посилання на створений для вас репозиторій!**
+## Демонстрація роботи програми
 
-Також пам'ятайте, що ніхто не заважає вам редагувати файл README у вашому репозиторії😉.
-А ще - дуже раджу спробувати нову фічу - інтеграцію з IDE REPL.it (хоч з таким завданням вона може й не впоратись, однак, цікаво ж!).
-
-[![Gitter](https://badges.gitter.im/PPC-SE-2020/OOP.svg)](https://gitter.im/PPC-SE-2020/OOP?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-![](https://img.shields.io/badge/Made%20with-JAVA-red.svg)
-![](https://img.shields.io/badge/Made%20with-%20Netbeans-brightgreen.svg)
-![](https://img.shields.io/badge/Made%20at-PPC%20NTU%20%22KhPI%22-blue.svg) 
+![Графічний інтерфейс програми JavaFX](photo_2026-06-07_19-05-42.jpg)
